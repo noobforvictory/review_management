@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: ./web
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./web/.env
+    environment:
+      # Fallback if not set in .env
+      NEXT_PUBLIC_SITE_URL: "http://localhost:3000"
+    restart: unless-stopped
+
